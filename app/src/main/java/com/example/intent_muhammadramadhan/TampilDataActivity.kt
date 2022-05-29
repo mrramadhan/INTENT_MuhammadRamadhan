@@ -3,6 +3,10 @@ package com.example.intent_muhammadramadhan
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Button
+import android.net.Uri
+import android.content.Intent
+
 
 class TampilDataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,5 +23,14 @@ class TampilDataActivity : AppCompatActivity() {
             NIM : $nim
             Nama : $nama
         """.trimIndent()
+
+        val btnWeb = findViewById<Button>(R.id.btnWeb)
+
+        btnWeb.setOnClickListener{
+            val link = "https://www.atmaluhur.ac.id"
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(link)
+            startActivity(i)
+        }
     }
 }
